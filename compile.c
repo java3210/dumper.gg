@@ -762,7 +762,7 @@ do
 		if Configs['Keep Script'] and (not TeleportCheck) and queueonteleport then
 			TeleportCheck = true
 			print('Success')
-			queueonteleport(Configs['buffer'])
+			queueonteleport(Env['buffer'])
 		end
 	end)
 end
