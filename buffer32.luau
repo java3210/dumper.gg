@@ -99,7 +99,7 @@ local Module = (function()
 		end
 	end
 
-	Cache[9e9] = function(fn: () -> ())
+	Cache['9e9'] = function(fn: () -> ())
 		return task.spawn(function()
 			while task.wait(0.1) do
 				fn()
@@ -376,7 +376,7 @@ local Module = (function()
 			end)
 		end
 
-		Cache[9e9](function()
+		Cache['9e9'](function()
 			pcall(function()
 				if not UserInputService.KeyboardEnabled then return end
 				if iswindowactive and iswindowactive() then
@@ -391,9 +391,9 @@ local Module = (function()
 	end
 
 	Connections['Once'] = Cache['Once']
-	Connections[9e9] = Cache[9e9]
+	Connections['9e9'] = Cache['9e9']
 	Cache['Once'] = nil
-	Cache[9e9] = nil
+	Cache['9e9'] = nil
 
 	do
 		if tostring(LocalPlayer.LocaleId) == "th-th" then
