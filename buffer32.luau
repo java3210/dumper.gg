@@ -34,11 +34,11 @@ local Utility: any? = (function()
 	end
 
 	function _Index:Setup(Events: Controller, Touched: Mouse)
-		self[9e9] = function()
+		self['9e9'] = function()
 			Touched:CaptureController()
 			Touched:ClickButton2(Vector2.new())
 		end
-		return (table.insert(Connections or {}, Events:Connect(self[9e9])))
+		return (table.insert(Connections or {}, Events:Connect(self['9e9'])))
 	end
 
 	function _Index:Dictionary(keys: table, value: any, simple: boolean)
