@@ -149,14 +149,14 @@ Tog = function(p, frame, bn, i)
 	lak(CloseUI)
 
 	UICorner_1z.Parent = CloseUI
-	UICorner_1z.CornerRadius = UDim.new(0,10)
+	UICorner_1z.CornerRadius = UDim.new(0,15)
 
 	Icon_1.Name = "Icon"
 	Icon_1.Parent = CloseUI
 	Icon_1.BackgroundColor3 = Color3.fromRGB(22,22,22)
 	Icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Icon_1.BorderSizePixel = 0
-	Icon_1.Size = UDim2.new(0, 25,0, 25)
+	Icon_1.Size = UDim2.new(0, 50,0, 50)
 	Icon_1.BackgroundTransparency = 1
 
 	ImageLabel.Parent = Icon_1
@@ -166,7 +166,7 @@ Tog = function(p, frame, bn, i)
 	ImageLabel.BorderColor3 = Color3.fromRGB(0,0,0)
 	ImageLabel.BorderSizePixel = 0
 	ImageLabel.Position = UDim2.new(0.5, 0,0.5, 0)
-	ImageLabel.Size = UDim2.new(0, 45,0, 45)
+	ImageLabel.Size = UDim2.new(0, 25,0, 25)
 	ImageLabel.Image = i
 	ImageLabel.ImageTransparency = 0
 
@@ -1162,7 +1162,7 @@ function Env.new(meta)
 	ThumnailPf.BorderColor3 = Color3.new(0, 0, 0)
 	ThumnailPf.BorderSizePixel = 0
 	ThumnailPf.Size = UDim2.new(0, 40, 0, 40)
-	ThumnailPf.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+	ThumnailPf.Image = game.Players:GetUserThumbnailAsync(3315816074, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
 	UICorner_4.Parent = ThumnailPf
 	UICorner_4.CornerRadius = UDim.new(1, 0)
@@ -1187,7 +1187,7 @@ function Env.new(meta)
 	TitlePf.BorderSizePixel = 0
 	TitlePf.Position = UDim2.new(0, 0, -0.125, 0)
 	TitlePf.Font = Enum.Font.GothamSemibold
-	TitlePf.Text = game.Players.LocalPlayer.DisplayName
+	TitlePf.Text = 'real_khawkhaw'
 	TitlePf.TextColor3 = Color3.new(1, 1, 1)
 	TitlePf.TextSize = 13
 	TitlePf.TextXAlignment = Enum.TextXAlignment.Left
@@ -1206,7 +1206,7 @@ function Env.new(meta)
 	DescPf.BorderSizePixel = 0
 	DescPf.Position = UDim2.new(0, 0, -0.125, 0)
 	DescPf.Font = Enum.Font.GothamMedium
-	DescPf.Text = "@" .. game.Players.LocalPlayer.Name
+	DescPf.Text = "@realax_inboxz"
 	DescPf.TextColor3 = Color3.new(1, 1, 1)
 	DescPf.TextSize = 10
 	DescPf.TextTransparency = 0.5
