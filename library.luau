@@ -143,20 +143,20 @@ Tog = function(p, frame, bn, i)
 	CloseUI.BorderSizePixel = 0
 	CloseUI.Position = UDim2.new(0.5, 0,0.2, 0)
 	CloseUI.Size = UDim2.new(0, 50,0, 50)
-	CloseUI.BackgroundTransparency = 0.35
+	CloseUI.BackgroundTransparency = 0
 	CloseUI.Text = ""
 
 	lak(CloseUI)
 
 	UICorner_1z.Parent = CloseUI
-	UICorner_1z.CornerRadius = UDim.new(0,5)
+	UICorner_1z.CornerRadius = UDim.new(0,10)
 
 	Icon_1.Name = "Icon"
 	Icon_1.Parent = CloseUI
 	Icon_1.BackgroundColor3 = Color3.fromRGB(22,22,22)
 	Icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Icon_1.BorderSizePixel = 0
-	Icon_1.Size = UDim2.new(0, 50,0, 50)
+	Icon_1.Size = UDim2.new(0, 25,0, 25)
 	Icon_1.BackgroundTransparency = 1
 
 	ImageLabel.Parent = Icon_1
