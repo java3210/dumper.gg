@@ -142,7 +142,7 @@ Tog = function(p, frame, bn, i)
 	CloseUI.BorderColor3 = Color3.fromRGB(0,0,0)
 	CloseUI.BorderSizePixel = 0
 	CloseUI.Position = UDim2.new(0.5, 0,0.2, 0)
-	CloseUI.Size = UDim2.new(0, 50,0, 50)
+	CloseUI.Size = UDim2.new(0, 60,0, 60)
 	CloseUI.BackgroundTransparency = 0
 	CloseUI.Text = ""
 
@@ -156,7 +156,7 @@ Tog = function(p, frame, bn, i)
 	Icon_1.BackgroundColor3 = Color3.fromRGB(22,22,22)
 	Icon_1.BorderColor3 = Color3.fromRGB(0,0,0)
 	Icon_1.BorderSizePixel = 0
-	Icon_1.Size = UDim2.new(0, 50,0, 50)
+	Icon_1.Size = UDim2.new(1,0,1, 0)
 	Icon_1.BackgroundTransparency = 1
 
 	ImageLabel.Parent = Icon_1
@@ -166,7 +166,7 @@ Tog = function(p, frame, bn, i)
 	ImageLabel.BorderColor3 = Color3.fromRGB(0,0,0)
 	ImageLabel.BorderSizePixel = 0
 	ImageLabel.Position = UDim2.new(0.5, 0,0.5, 0)
-	ImageLabel.Size = UDim2.new(0, 25,0, 25)
+	ImageLabel.Size = UDim2.new(0, 35,0, 35)
 	ImageLabel.Image = i
 	ImageLabel.ImageTransparency = 0
 
@@ -177,7 +177,14 @@ Tog = function(p, frame, bn, i)
 				t = 0.2,
 				s = "Back",
 				d = "Out",
-				g = {Size = UDim2.new(0, 35, 0, 35)}
+				g = {Size = UDim2.new(0, 40, 0, 40)}
+			}):Play()
+			tw({
+				v = CloseUI,
+				t = 0.2,
+				s = "Back",
+				d = "Out",
+				g = {Size = UDim2.new(0, 70, 0, 70)}
 			}):Play()
 			task.wait(0.016) 
 			tw({
@@ -185,7 +192,14 @@ Tog = function(p, frame, bn, i)
 				t = 0.2,
 				s = "Back",
 				d = "Out",
-				g = {Size = UDim2.new(0, 45, 0, 45)}
+				g = {Size = UDim2.new(0, 35, 0, 35)}
+			}):Play()
+			tw({
+				v = CloseUI,
+				t = 0.2,
+				s = "Back",
+				d = "Out",
+				g = {Size = UDim2.new(0, 60, 0, 60)}
 			}):Play()
 		end)
 		frame.Visible = not frame.Visible
@@ -1187,7 +1201,7 @@ function Env.new(meta)
 	TitlePf.BorderSizePixel = 0
 	TitlePf.Position = UDim2.new(0, 0, -0.125, 0)
 	TitlePf.Font = Enum.Font.GothamSemibold
-	TitlePf.Text = 'real_khawkhaw'
+	TitlePf.Text = 'real_khawkhaw - พี่ข้าวคนสวย'
 	TitlePf.TextColor3 = Color3.new(1, 1, 1)
 	TitlePf.TextSize = 13
 	TitlePf.TextXAlignment = Enum.TextXAlignment.Left
