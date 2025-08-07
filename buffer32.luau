@@ -106,7 +106,7 @@ Connections['9e9'] = function(fn: () -> ())
 	end)
 end
 
-Cache['Reversal'] = function(cursor: string?)
+Cache.Reversal = function(cursor: string?)
 	local url = `https://games.roblox.com/v1/games/{game.PlaceId}/servers/Public?sortOrder=Asc&limit=100`
 	if cursor then
 		url ..= `&cursor={cursor}`
@@ -114,11 +114,11 @@ Cache['Reversal'] = function(cursor: string?)
 	return HttpService:JSONDecode(game:HttpGet(url))
 end
 
-Cache['HOP'] = function()
+Cache.HOP = function()
 	return task.spawn(function()
 		local Server, Next
 		repeat
-			local Servers = Cache['Reversal'](Next)
+			local Servers = Cache.Reversal(Next)
 			Server = Servers and Servers.data and Servers.data[1]
 			Next = Servers and Servers.nextPageCursor
 		until Server
@@ -127,7 +127,7 @@ Cache['HOP'] = function()
 	end)
 end
 
-Cache['Rejoin'] = function()
+Cache.Rejoin = function()
 	if #Players:GetPlayers() <= 1 then
 		LocalPlayer:Kick("\nRejoining")
 		wait()
@@ -136,7 +136,7 @@ Cache['Rejoin'] = function()
 	return TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
 end
 
-Cache['html'] = function(text: string, color: Color3)
+Cache.html = function(text: string, color: Color3)
 	if type(text) == "string" and typeof(color) == "Color3" then
 		local r, g, b = math.floor(color.R * 255), math.floor(color.G * 255), math.floor(color.B * 255)
 		return string.format('<font color="rgb(%d, %d, %d)">%s</font>', r, g, b, text)
@@ -144,7 +144,7 @@ Cache['html'] = function(text: string, color: Color3)
 	return text
 end
 
-Cache['def'] = function(v: string, a: any?)
+Cache.def = function(v: string, a: any?)
 	if type(v) == "table" then
 		for i, k in pairs(v) do
 			if Configs[i] == nil then
@@ -158,7 +158,7 @@ Cache['def'] = function(v: string, a: any?)
 	end
 end
 
-Cache['save'] = function(key: string?, value: any?)
+Cache.save = function(key: string?, value: any?)
 	local base = `dumper.gg/configs/{LocalPlayer.UserId}`
 	local path = `{base}/{game.PlaceId}.json`
 
@@ -181,7 +181,7 @@ Cache['save'] = function(key: string?, value: any?)
 	Cache.writefile(path, HttpService:JSONEncode(Configs))
 end
 
-Cache['load'] = function()
+Cache.load = function()
 	local base = `dumper.gg/configs/{LocalPlayer.UserId}`
 	local path = `{base}/{game.PlaceId}.json`
 
@@ -204,7 +204,7 @@ Cache['load'] = function()
 	return HttpService:JSONDecode(Cache.readfile(path))
 end
 
-Cache['tab'] = function(window: table ,title: string, desc: string, icon: number)
+Cache.tab = function(window: table ,title: string, desc: string, icon: number)
 	return window:Add({
 		Title = title,
 		Desc = desc,
@@ -212,28 +212,28 @@ Cache['tab'] = function(window: table ,title: string, desc: string, icon: number
 	}) 
 end
 
-Cache['sec'] = function(tab: table ,title: string, desc: string)
+Cache.sec = function(tab: table ,title: string, desc: string)
 	return tab:Sec({
 		Title = title,
 		Side = desc
 	}) 
 end
 
-Cache['button'] = function(sec: any, Title: string, Callback: any)
+Cache.button = function(sec: any, Title: string, Callback: any)
 	return sec:Button({
 		Title = Title,
 		Callback = Callback
 	}) 
 end
 
-Cache['list'] = function(sec: table, title: string, list: table, m: boolean, setting: string)
+Cache.list = function(sec: table, title: string, list: table, m: boolean, setting: string)
 	sec:Dropdown({Title = title,Multi = m,List = list,Value = Configs[setting],Callback = function(v)
 		Configs[setting] = v
 		Cache.save(setting, v)
 	end})
 end
 
-Cache['toggle'] = function(meta: table)
+Cache.toggle = function(meta: table)
 	local Section = meta.sec
 	local Title = meta.title or "Toggle"
 	local Index = meta.index or false
@@ -269,10 +269,10 @@ Cache['toggle'] = function(meta: table)
 	})
 end
 
-Cache['def']('X', 0)
-Cache['def']('Y', 0)
+Cache.def('X', 0)
+Cache.def('Y', 0)
 
-Cache['init'] = function()
+Cache.init = function()
 	if Configs['X'] == 0 and Configs['Y'] == 0 then
 		if UserInputService.KeyboardEnabled then
 			return UDim2.new(0, 750, 0, 800)
@@ -296,7 +296,7 @@ function Cache:setup(window: table, queue: string)
 					end
 				end
 			end})
-			Cache['button'](Performance, translate('Boost FPS', "แก้แลค"), function()
+			Cache.button(Performance, translate('Boost FPS', "แก้แลค"), function()
 				local Terrain = workspace:FindFirstChildOfClass('Terrain')
 				Terrain.WaterWaveSize = 0
 				Terrain.WaterWaveSpeed = 0
@@ -332,33 +332,33 @@ function Cache:setup(window: table, queue: string)
 				Configs["Input JobID"] = v
 				Cache.save("Input JobID", v)
 			end})
-			Cache['button'](Server, translate("Join", "เข้าร่วม"), function()
+			Cache.button(Server, translate("Join", "เข้าร่วม"), function()
 				TeleportService:TeleportToPlaceInstance(game.PlaceId, Configs['Input JobID'], LocalPlayer)
 			end)
-			Cache['button'](Server, translate("Clipboard JobId", "คัดลอกไอดี"), function()
+			Cache.button(Server, translate("Clipboard JobId", "คัดลอกไอดี"), function()
 				pcall(setclipboard, game.JobId)
 			end)
-			Cache['button'](Server, translate("Rejoin", "รีจอยน์"), function()
-				Cache['Rejoin']()
+			Cache.button(Server, translate("Rejoin", "รีจอยน์"), function()
+				Cache.Rejoin()
 			end)
-			Cache['button'](Server, translate("Change Server", "เปลี่ยนเซิร์ฟเวอร์"), function()
-				Cache['HOP']()
+			Cache.button(Server, translate("Change Server", "เปลี่ยนเซิร์ฟเวอร์"), function()
+				Cache.HOP()
 			end)
 		end
 
 		local Config = Home:Sec({Title = translate("Configs", "การตั้งค่า"), Side = "l"}) do
 			Cache.list(Config, translate("Language", 'เลือกภาษา'), {'ไทย', 'English [ Default ]'}, false, 'Lauguage')
-			Cache['button'](Config, translate("Change Language", "เปลี่ยนภาษา"), function()
-				Cache['Rejoin']()
+			Cache.button(Config, translate("Change Language", "เปลี่ยนภาษา"), function()
+				Cache.Rejoin()
 			end)
 			Config:Line()
-			Cache['button'](Config, translate("Remove Configs [ Only This Game ]", "ลบการตั้งค่า [ เฉพาะแมพนี้ ]"), function()
+			Cache.button(Config, translate("Remove Configs [ Only This Game ]", "ลบการตั้งค่า [ เฉพาะแมพนี้ ]"), function()
 				pcall(delfile, Cache.file)
 			end)
-			Cache['button'](Config, translate("Remove Configs [ All ]", "ลบการตั้งค่า [ ทุกแมพ ]"), function()
+			Cache.button(Config, translate("Remove Configs [ All ]", "ลบการตั้งค่า [ ทุกแมพ ]"), function()
 				pcall(delfolder, 'dumper.gg')
 			end)
-			Cache['button'](Config, translate("Break Auto Execute", "หยุดการรันอัตโนมัติทั้งหมด"), function()
+			Cache.button(Config, translate("Break Auto Execute", "หยุดการรันอัตโนมัติทั้งหมด"), function()
 				pcall(clearteleportqueue or clear_teleport_queue)
 			end)
 		end
@@ -389,7 +389,7 @@ function Cache:setup(window: table, queue: string)
 	return Home
 end
 
-Configs = Cache['load']()
+Configs = Cache.load()
 
 do
 	if tostring(LocalPlayer.LocaleId) == "th-th" then
