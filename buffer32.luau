@@ -87,7 +87,7 @@ local Cache = {
 	['isfile'] = Utility:RE('isfile')
 }
 
-Cache['Once'] = function(condition: any?, interval: number, fn: (() -> ())?, custom: (() -> boolean)?)
+Connections['Once'] = function(condition: any?, interval: number, fn: (() -> ())?, custom: (() -> boolean)?)
 	while condition do
 		local Tick = tick()
 		if fn then fn() end
@@ -98,7 +98,7 @@ Cache['Once'] = function(condition: any?, interval: number, fn: (() -> ())?, cus
 	end
 end
 
-Cache['9e9'] = function(fn: () -> ())
+Connections['9e9'] = function(fn: () -> ())
 	return task.spawn(function()
 		while task.wait(0.1) do
 			fn()
@@ -388,11 +388,6 @@ function Cache:setup(window: table, queue: string)
 
 	return Home
 end
-
-Connections['Once'] = Cache['Once']
-Connections['9e9'] = Cache['9e9']
-Cache['Once'] = nil
-Cache['9e9'] = nil
 
 Configs = Cache['load']()
 
