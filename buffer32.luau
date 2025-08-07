@@ -43,7 +43,7 @@ local Utility: any? = (function()
 
 	function _Index:Dictionary(keys: table, value: any, simple: boolean)
 		local Dictionary = {}
-		for _, k in pairs(keys) do
+		for _, k in keys do
 			Dictionary[k] = value
 		end
 		return (not simple and table.unpack(Dictionary)) or Dictionary
@@ -206,25 +206,28 @@ local Module = (function()
 	end
 
 	Cache['tab'] = function(window: table ,title: string, desc: string, icon: number)
-		return window:Add({
+		local clude = {
 			Title = title,
 			Desc = desc,
 			Icon = icon
-		}) 
+		}
+		return window:Add(clude) 
 	end
 
 	Cache['sec'] = function(tab: table ,title: string, desc: string)
-		return tab:Sec({
+		local clude = {
 			Title = title,
 			Side = desc
-		}) 
+		}
+		return tab:Sec(clude) 
 	end
 
 	Cache['button'] = function(sec: any, Title: string, Callback: any)
-		return sec:Button({
+		local clude = {
 			Title = Title,
 			Callback = Callback
-		}) 
+		}
+		return sec:Button(clude) 
 	end
 
 	Cache['list'] = function(sec: table, title: string, list: table, m: boolean, setting: string)
@@ -306,7 +309,7 @@ local Module = (function()
 					game.Lighting.GlobalShadows = false
 					game.Lighting.FogEnd = 9e9
 					settings().Rendering.QualityLevel = 1
-					for i,v in pairs(game:GetDescendants()) do
+					for _, v in game:GetDescendants() do
 						if v:IsA("Part") or v:IsA("UnionOperation") or v:IsA("MeshPart") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
 							v.Material = "Plastic"
 							v.Reflectance = 0
@@ -319,7 +322,7 @@ local Module = (function()
 							v.BlastRadius = 1
 						end
 					end
-					for i,v in pairs(Lighting:GetDescendants()) do
+					for _, v in Lighting:GetDescendants() do
 						if v:IsA("BlurEffect") or v:IsA("SunRaysEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("BloomEffect") or v:IsA("DepthOfFieldEffect") then
 							v.Enabled = false
 						end
