@@ -211,7 +211,9 @@ local Module = (function()
 			Desc = desc,
 			Icon = icon
 		}
-		return window:Add(clude) 
+		task.spawn(function()
+			return window:Add(clude) 
+		end)
 	end
 
 	Cache['sec'] = function(tab: table ,title: string, desc: string)
@@ -219,7 +221,9 @@ local Module = (function()
 			Title = title,
 			Side = desc
 		}
-		return tab:Sec(clude) 
+		task.spawn(function()
+			return tab:Sec(clude) 
+		end)
 	end
 
 	Cache['button'] = function(sec: any, Title: string, Callback: any)
@@ -227,7 +231,9 @@ local Module = (function()
 			Title = Title,
 			Callback = Callback
 		}
-		return sec:Button(clude) 
+		task.spawn(function()
+			return sec:Button(clude) 
+		end)
 	end
 
 	Cache['list'] = function(sec: table, title: string, list: table, m: boolean, setting: string)
