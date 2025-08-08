@@ -1,1 +1,1 @@
-print('Success load)
+print('Success load')
