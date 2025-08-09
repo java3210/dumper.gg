@@ -375,17 +375,6 @@ function Cache:setup(window: table, queue: string)
 		end)
 	end
 
-	Connections['9e9'](function()
-		pcall(function()
-			if not UserInputService.KeyboardEnabled then return end
-			if iswindowactive and iswindowactive() then
-				RunService:Set3dRenderingEnabled(true)
-			else
-				RunService:Set3dRenderingEnabled(false)
-			end
-		end)
-	end)
-
 	return Home
 end
 
