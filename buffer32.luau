@@ -1,3 +1,5 @@
+local _ENV, _FNV = getgenv(), getfenv()
+
 repeat 
 	task.wait()
 until game:IsLoaded() and game:GetService('Players') and game:GetService('Players').LocalPlayer and workspace
@@ -60,6 +62,33 @@ local Utility: any? = (function()
 
 	return _Index
 end)()
+
+local Signal = {} do
+	Signal.__index = Signal
+	_ENV.Running = true
+
+	function Signal.new()
+		return setmetatable({}, Signal)
+	end
+
+	function Signal:Fire(Option: string, Error: string?)
+		local text = string.format("xynapse error: [ %s ] %s", tostring(Option or "nil"), tostring(Error))
+
+		local Message = Instance.new("Message", workspace)
+		Message.Text = text
+
+		_ENV.Running = false
+	end
+
+	function Signal:Running(Option: string, Callback)
+		if not _ENV.Running then return end
+
+		local success, err = pcall(Callback)
+		if not success then
+			self:Fire(Option, err)
+		end
+	end
+end
 
 local Players: Players = Utility:GetService("Players")
 local Lighting: Lighting = Utility:GetService('Lighting')
@@ -375,6 +404,17 @@ function Cache:setup(window: table, queue: string)
 		end)
 	end
 
+	Connections['9e9'](function()
+		pcall(function()
+			if not UserInputService.KeyboardEnabled then return end
+			if iswindowactive and iswindowactive() then
+				RunService:Set3dRenderingEnabled(true)
+			else
+				RunService:Set3dRenderingEnabled(false)
+			end
+		end)
+	end)
+
 	return Home
 end
 
@@ -394,5 +434,7 @@ return table.unpack({
 	Connections,
 	Nets,
 	Cache,
-	translate
+	translate,
+	Signal,
+	Indexing
 })
