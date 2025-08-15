@@ -2309,6 +2309,7 @@ function Env.new(meta)
 				DescTOgle.Position = UDim2.new(0.381251812, 0, 0.661111116, 0)
 				DescTOgle.Size = UDim2.new(0.762503624, 0, 0.300000012, 0)
 				DescTOgle.Font = Enum.Font.GothamMedium
+				DescTOgle.TextTruncate = Enum.TextTruncate.AtEnd
 				local function Update()
 					if type(Value) == "table" then
 						DescTOgle.Text = table.concat(Value, ", ")
