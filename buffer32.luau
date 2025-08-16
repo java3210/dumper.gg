@@ -304,7 +304,7 @@ Cache.def('Y', 0)
 Cache.init = function()
 	if Configs['X'] == 0 and Configs['Y'] == 0 then
 		if UserInputService.KeyboardEnabled then
-			return UDim2.new(0, 750, 0, 800)
+			return UDim2.new(0, 500, 0, 480)
 		else
 			return UDim2.new(0, 500, 0, 350)
 		end
