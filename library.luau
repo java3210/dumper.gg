@@ -237,7 +237,7 @@ function Env.new(meta)
 	local Desc = meta.Desc
 	local Size = meta.Size or UDim2.new(0, 525,0, 400)
 	local Con = false
-	
+
 	local Notification = Instance.new("Frame")
 	local UIListLayout_1 = Instance.new("UIListLayout")
 
@@ -256,7 +256,7 @@ function Env.new(meta)
 	UIListLayout_1.HorizontalAlignment = Enum.HorizontalAlignment.Right
 	UIListLayout_1.SortOrder = Enum.SortOrder.LayoutOrder
 	UIListLayout_1.VerticalAlignment = Enum.VerticalAlignment.Bottom
-	
+
 	function Env:Notify(info)
 		local Title = info.Title
 		local Desc = info.Desc or ''
@@ -435,7 +435,7 @@ function Env.new(meta)
 			end)
 		end
 	end
-	
+
 	do
 		if meta.KeyEnabled then
 			local Key = Instance.new("Frame")
@@ -700,9 +700,9 @@ function Env.new(meta)
 		else
 			Con = true
 		end
-		
+
 	end
-	
+
 	repeat wait() until Con
 
 	local Background = Instance.new("Frame")
@@ -772,7 +772,7 @@ function Env.new(meta)
 
 	lak(Background)
 	Tog(fetching, Background, Enum.KeyCode.LeftControl, Logo)
-	
+
 	local resize = Instance.new("TextButton")
 	resize.Parent = Background
 	resize.AnchorPoint = Vector2.new(1, 1)
@@ -781,7 +781,7 @@ function Env.new(meta)
 	resize.BackgroundTransparency = 1
 	resize.BorderSizePixel = 0
 	resize.Text = ''
-	
+
 	resize.MouseEnter:Connect(function()
 		UserInputService.MouseIcon = "rbxassetid://84174532888860"
 	end)
@@ -789,7 +789,7 @@ function Env.new(meta)
 	resize.MouseLeave:Connect(function()
 		UserInputService.MouseIcon = ""
 	end)
-	
+
 	local RESIZE_EZ = Instance.new("Frame")
 	local UICorner333 = Instance.new("UICorner")
 	local RESIZE_ICON = Instance.new("ImageLabel")
@@ -820,10 +820,10 @@ function Env.new(meta)
 	RESIZE_ICON.Image = "rbxassetid://84174532888860"
 	RESIZE_ICON.ImageTransparency = 1
 	RESIZE_ICON.ZIndex = 888
-	
+
 	RESIZE_ICON.Visible = false
 	RESIZE_EZ.Visible = false
-	
+
 	local function Resize(DragFrame, Frame)
 		local resizing = false
 		local startSize, startMouse
@@ -897,7 +897,7 @@ function Env.new(meta)
 		UserInputService.InputChanged:Connect(UpdateResize)
 		UserInputService.InputEnded:Connect(EndResize)
 	end
-	
+
 	Resize(resize, Background)
 
 	UICorner.Parent = Background
@@ -1242,7 +1242,7 @@ function Env.new(meta)
 	DS.Position = UDim2.new(0.00522648077, 0, 0.632352948, 0)
 	DS.Size = UDim2.new(1, 0, 0, 50)
 	DS.ClipsDescendants = true
-	
+
 	local InsideDS = Instance.new("Frame")
 	InsideDS.Name = "ff"
 	InsideDS.Parent = DS
@@ -1254,7 +1254,7 @@ function Env.new(meta)
 	InsideDS.LayoutOrder = -4
 	InsideDS.Position = UDim2.new(0.5, 0, 0.5, 0)
 	InsideDS.Size = UDim2.new(1, 0, 1, 0)
-	
+
 	UICorner_5.Parent = DS
 	UICorner_5.CornerRadius = UDim.new(0, 15)
 
@@ -1272,7 +1272,7 @@ function Env.new(meta)
 	ThumnailDS.BorderSizePixel = 0
 	ThumnailDS.Size = UDim2.new(0, 25, 0, 25)
 	ThumnailDS.Image = "rbxassetid://94937742565147"
-	
+
 	local ClickCS = click(DS)
 
 	ClickCS.MouseButton1Click:Connect(function()
@@ -1664,9 +1664,9 @@ function Env.new(meta)
 			UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
 				Section.Size = UDim2.new(0.980000019, 0, 0, UIListLayout.AbsoluteContentSize.Y + 15)
 			end)
-			
+
 			local Class = {}
-			
+
 			function Class:Button(meta)
 
 				local Title = meta.Title
@@ -1699,9 +1699,9 @@ function Env.new(meta)
 				TextLabel.TextColor3 = Color3.new(0, 0, 0)
 				TextLabel.TextSize = 12
 				TextLabel.AutomaticSize = Enum.AutomaticSize.XY
-				
+
 				local ClickButton = click(Button)
-				
+
 				ClickButton.MouseButton1Click:Connect(function()
 					for _, v in pairs(Background:GetChildren()) do
 						if (v.Name == "Dropdown" and v.Visible) or v.Name == "Window" then
@@ -1712,13 +1712,13 @@ function Env.new(meta)
 					Callback()
 				end)
 			end
-			
+
 			function Class:ButtomImage(meta)
-				
+
 				local Title = meta.Title
 				local Icon = meta.Icon
 				local Callback = meta.Callback
-				
+
 				local Toggle = Instance.new("Frame")
 				local UICorner = Instance.new("UICorner")
 				local InsideToggle = Instance.new("Frame")
@@ -1782,7 +1782,7 @@ function Env.new(meta)
 				ImageLabel.LayoutOrder = -5
 				ImageLabel.Size = UDim2.new(0, 30, 0, 30)
 				ImageLabel.Image = GetIcon(Icon)
-				
+
 				local GG = Instance.new("Frame")
 				local UIPadding = Instance.new("UIPadding")
 				local TRUEE = Instance.new("ImageLabel")
@@ -1814,7 +1814,7 @@ function Env.new(meta)
 				TRUEE.Size = UDim2.new(0, 20, 0, 20)
 				TRUEE.Image = "rbxassetid://108028847031522"
 				TRUEE.ImageColor3 = Color3.new(0.52549, 0.827451, 1)
-				
+
 				clickbutton.MouseButton1Click:Connect(function()
 					for _, v in pairs(Background:GetChildren()) do
 						if (v.Name == "Dropdown" and v.Visible) or v.Name == "Window" then
@@ -1825,14 +1825,14 @@ function Env.new(meta)
 					EffectClick(clickbutton, Toggle)
 				end)
 			end
-			
+
 			function Class:ToggleImage(meta)
-				
+
 				local Title = meta.Title
 				local Icon = meta.Icon
 				local Value = meta.Value
 				local Callback = meta.Callback
-				
+
 				local Toggle = Instance.new("Frame")
 				local UICorner = Instance.new("UICorner")
 				local InsideToggle = Instance.new("Frame")
@@ -1865,8 +1865,8 @@ function Env.new(meta)
 
 				UIPadding.Parent = InsideToggle
 				UIPadding.PaddingLeft = UDim.new(0, 6)
-				
-				
+
+
 				local GG = Instance.new("Frame")
 				local UIPaddingz = Instance.new("UIPadding")
 				local noColor = Instance.new("Frame")
@@ -1958,7 +1958,7 @@ function Env.new(meta)
 				ImageLabel.LayoutOrder = -5
 				ImageLabel.Size = UDim2.new(0, 30, 0, 30)
 				ImageLabel.Image = GetIcon(Icon)
-				
+
 				local function Togglex(Value)
 					if not Value then 
 						Callback(Value)
@@ -2031,17 +2031,17 @@ function Env.new(meta)
 
 				Togglex(Value)
 			end
-			
+
 			function Class:Toggle(meta)
 				local Title = meta.Title
 				local Value = meta.Value
 				local Callback = meta.Callback
-				
+
 				local Toggle = Instance.new("Frame")
 				local UICorner2 = Instance.new("UICorner")
 				local InsideToggle = Instance.new("Frame")
 				local UIPadding = Instance.new("UIPadding")
-				
+
 				local UIListLayout = Instance.new("UIListLayout")
 				local TitleTOgle = Instance.new("TextLabel")
 				local ClickToggle = click(Toggle)
@@ -2053,7 +2053,7 @@ function Env.new(meta)
 				Toggle.BorderSizePixel = 0
 				Toggle.Size = UDim2.new(0.97, 0, 0, 40)
 				Toggle.ClipsDescendants = true
-				
+
 				UICorner2.Parent = Toggle
 				UICorner2.CornerRadius = UDim.new(0, 10)
 
@@ -2225,7 +2225,7 @@ function Env.new(meta)
 
 				Togglex(Value)
 			end
-			
+
 			local function Autoside(x)
 				if x.Parent.Parent.Name == "Left" then
 					return 1
@@ -2233,9 +2233,9 @@ function Env.new(meta)
 					return 0
 				end
 			end
-			
+
 			function Class:Dropdown(info)
-				
+
 				local Title = info.Title
 				local List = info.List or {}
 				local Value = info.Value
@@ -2349,7 +2349,7 @@ function Env.new(meta)
 				TRUEE.Size = UDim2.new(0, 20, 0, 20)
 				TRUEE.Image = "rbxassetid://129573215183311"
 				TRUEE.ImageColor3 = Color3.new(0.52549, 0.827451, 1)
-				
+
 				local Dropdown = Instance.new("Frame")
 				local DropShadow = Instance.new("ImageLabel")
 				local UICorner = Instance.new("UICorner")
@@ -2363,7 +2363,7 @@ function Env.new(meta)
 				local Search = Instance.new("Frame")
 				local UICorner_2 = Instance.new("UICorner")
 				local TextBox = Instance.new("TextBox")
-				
+
 				local StartAutoSide = Autoside(Toggle)
 
 				Dropdown.Name = "Dropdown"
@@ -2376,7 +2376,7 @@ function Env.new(meta)
 				Dropdown.Size = UDim2.new(0.5, 0, 1, 0)
 				Dropdown.ZIndex = 3
 				Dropdown.Visible = false
-				
+
 				local SK = Instance.new("UIStroke", Dropdown)
 				SK.Color = Color3.fromRGB(25, 25, 25)
 				SK.Thickness = 1
@@ -2433,7 +2433,7 @@ function Env.new(meta)
 				ScrollingFrame.Size = UDim2.new(0.899999976, 0, 1, 0)
 				ScrollingFrame.ZIndex = 3
 				ScrollingFrame.ScrollBarThickness = 0
-				
+
 				Canvas_Y(UIListLayoutzz, ScrollingFrame, 20)
 
 				UIListLayoutzz.Parent = ScrollingFrame
@@ -2467,7 +2467,7 @@ function Env.new(meta)
 				Search.Position = UDim2.new(0.5, 0, 0, 0)
 				Search.Size = UDim2.new(0.920000017, 0, 0, 25)
 				Search.ZIndex = 3
-				
+
 				local SK2 = Instance.new("UIStroke", Search)
 				SK2.Color = Color3.fromRGB(255, 255, 255)
 				SK2.Thickness = 1
@@ -2490,7 +2490,7 @@ function Env.new(meta)
 				TextBox.Text = ""
 				TextBox.TextColor3 = Color3.new(1, 1, 1)
 				TextBox.TextSize = 14
-				
+
 				local isOpen = false
 				UserInputService.InputBegan:Connect(function(A)
 					if A.UserInputType == Enum.UserInputType.MouseButton1 or A.UserInputType == Enum.UserInputType.Touch then
@@ -2574,7 +2574,7 @@ function Env.new(meta)
 						end
 					end
 				end)
-				
+
 				local itemslist = {}
 				local selectedItem
 
@@ -2896,9 +2896,9 @@ function Env.new(meta)
 
 				return itemslist
 			end
-			
+
 			function Class:Slider(info)
-				
+
 				local Title = info.Title
 				local Min = info.Min or 0
 				local Max = info.Max or 100
@@ -3046,7 +3046,7 @@ function Env.new(meta)
 				TextBox.TextColor3 = Color3.new(1, 1, 1)
 				TextBox.TextSize = 9
 				TextBox.ZIndex = Slide.ZIndex
-				
+
 				local function roundToDecimal(value, decimals)
 					local factor = 10 ^ decimals
 					return math.floor(value * factor + 0.5) / factor
@@ -3072,7 +3072,7 @@ function Env.new(meta)
 						currentValue = currentValue + (targetValue - startValue) / steps
 						TextBox.Text = tostring(roundToDecimal(currentValue, Rounding))
 					end
-					
+
 					Box.Size = UDim2.new(0, TextBox.TextBounds.X + 15, 0, 12)
 					TextBox.Text = tostring(roundToDecimal(targetValue, Rounding))
 
@@ -3129,7 +3129,7 @@ function Env.new(meta)
 					end
 				end)
 			end
-			
+
 			function Class:Textbox(meta)
 
 				local Value = meta.Value or "Example"
@@ -3180,7 +3180,7 @@ function Env.new(meta)
 				end)
 			end
 
-			function Class:Label(t)
+			function Class:Label(t, s)
 				local Label = Instance.new("Frame")
 				local UICorner_1 = Instance.new("UICorner")
 				local Title_1 = Instance.new("TextLabel")
@@ -3212,20 +3212,9 @@ function Env.new(meta)
 				Title_1.TextColor3 = Color3.fromRGB(255,255,255)
 				Title_1.TextSize = 11
 				Title_1.TextWrapped = true
-				Title_1.TextXAlignment = Enum.TextXAlignment.Left
+				Title_1.TextXAlignment = (s == "l" and Enum.TextXAlignment.Left) or (s == "r" and Enum.TextXAlignment.Right) or (s == "c" and Enum.TextXAlignment.Center) or Enum.TextXAlignment.Center
 
-				Title_1.Size = UDim2.new(1, 0,0, Title_1.TextBounds.Y)
-				Label.Size = UDim2.new(0.899999976, 0,0, Title_1.TextBounds.Y + 10)
-
-				local o = {}
-
-				function o:Title(a)
-					Title_1.Text = a
-					Title_1.Size = UDim2.new(1, 0,0, Title_1.TextBounds.Y)
-					Label.Size = UDim2.new(0.899999976, 0,0, Title_1.TextBounds.Y + 10)
-				end
-
-				return o
+				return Title_1
 			end
 
 			function Class:Line()
@@ -3239,7 +3228,7 @@ function Env.new(meta)
 				Line.Position = UDim2.new(0, 0,0, 44)
 				Line.Size = UDim2.new(1, 0,0, 1)
 			end
-			
+
 			return Class
 		end
 
@@ -3248,7 +3237,7 @@ function Env.new(meta)
 	end
 
 	function Tabs:Dialog(meta)
-		
+
 		local Title = meta.Title
 		local Content = meta.Content
 		local Button = meta.Button
@@ -3256,7 +3245,7 @@ function Env.new(meta)
 		local Text2 = Button[2].Title
 		local Callback1 = Button[1].Callback
 		local Callback2 = Button[2].Callback
-		
+
 		local VFrame = RESIZE_EZ:Clone()
 		local Window = Instance.new("Frame")
 		local DropShadow_1 = Instance.new("ImageLabel")
@@ -3280,8 +3269,8 @@ function Env.new(meta)
 		local UICorner_3 = Instance.new("UICorner")
 		local TextLabel_3 = Instance.new("TextLabel")
 		local COlor_1 = Instance.new("Frame")
-		
-		
+
+
 		tw({
 			v = VFrame,
 			t = 0.2,
@@ -3299,13 +3288,13 @@ function Env.new(meta)
 		Window.Position = UDim2.new(0.5, 0,0.5, 0)
 		Window.Size = UDim2.new(0, 0,0, 0)
 		Window.ZIndex = 3
-		
+
 		VFrame.Name = "EZ"
 		VFrame.Parent = Background
 		VFrame.Visible = true
 		VFrame.BackgroundTransparency = 1
 		VFrame.ZIndex = Window.ZIndex - 1
-		
+
 		tw({
 			v = Window,
 			t = 0.15,
@@ -3401,7 +3390,7 @@ function Env.new(meta)
 		_1_1.Position = UDim2.new(0.031468533, 0,-0.125, 0)
 		_1_1.Size = UDim2.new(0, 250,0, 0)
 		_1_1.ZIndex = 3
-		
+
 		tw({
 			v = _1_1,
 			t = 0.3,
@@ -3441,7 +3430,7 @@ function Env.new(meta)
 		_2_1.Position = UDim2.new(0.031468533, 0,-0.125, 0)
 		_2_1.Size = UDim2.new(0, 250,0, 0)
 		_2_1.ZIndex = 3
-		
+
 		tw({
 			v = _2_1,
 			t = 0.3,
@@ -3520,7 +3509,7 @@ function Env.new(meta)
 		COlor_1.Position = UDim2.new(0.5, 0,1, 0)
 		COlor_1.Size = UDim2.new(0, 0,0, 2)
 		COlor_1.ZIndex = 3
-		
+
 		tw({
 			v = COlor_1,
 			t = 0.5,
@@ -3528,16 +3517,16 @@ function Env.new(meta)
 			d = "Out",
 			g = {Size = UDim2.new(0, TextLabel_3.TextBounds.X - 10 ,0, 2)}
 		}):Play()
-		
+
 		local Click_1 = click(_1_1)
 		local Click_2 = click(_2_1)
-		
+
 		Click_1.MouseButton1Click:Connect(function()
 			Callback1()
 			Window:Destroy()
 			VFrame:Destroy()
 		end)
-		
+
 		Click_2.MouseButton1Click:Connect(function()
 			Callback2()
 			Window:Destroy()
