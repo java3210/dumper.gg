@@ -317,13 +317,11 @@ function Cache:setup(window: table, queue: string)
 	local Home = window:Add({Title = translate("Configure", "คอนฟิกเกอร์"),Desc = translate("Managers", "ระบบหลัก"),Icon = 132831270943713}) do
 		local Performance = Home:Sec({Title = translate("Performance", "ประสิทธิภาพ"), Side = "r"}) do
 			Cache.toggle({sec = Performance,title = translate("Enable White Screen", "เปิดใช้งานจอขาว"),setting = "White Screen",call = function(v)
-				if not UserInputService.KeyboardEnabled then
 					if v then
 						RunService:Set3dRenderingEnabled(false)
 					else
 						RunService:Set3dRenderingEnabled(true)
 					end
-				end
 			end})
 			Cache.button(Performance, translate('Boost FPS', "แก้แลค"), function()
 				local Terrain = workspace:FindFirstChildOfClass('Terrain')
