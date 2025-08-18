@@ -81,12 +81,7 @@ local Signal = {} do
 	end
 
 	function Signal:Running(Option: string, Callback)
-		if not _ENV.Running then return end
-
-		local success, err = pcall(Callback)
-		if not success then
-			self:Fire(Option, err)
-		end
+		pcall(Callback)
 	end
 end
 
