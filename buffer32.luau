@@ -251,7 +251,7 @@ Cache.button = function(sec: any, Title: string, Callback: any)
 end
 
 Cache.list = function(sec: table, title: string, list: table, m: boolean, setting: string)
-	sec:Dropdown({Title = title,Multi = m,List = list,Value = Configs[setting],Callback = function(v)
+	return sec:Dropdown({Title = title,Multi = m,List = list,Value = Configs[setting],Callback = function(v)
 		Configs[setting] = v
 		Cache.save(setting, v)
 	end})
